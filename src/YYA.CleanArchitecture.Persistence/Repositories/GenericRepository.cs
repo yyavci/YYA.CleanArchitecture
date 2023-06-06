@@ -12,9 +12,9 @@ namespace YYA.CleanArchitecture.Persistence.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : Entity
     {
-        private readonly ApplicationDbContext dbContext;
+        private readonly AppDbContext dbContext;
 
-        public GenericRepository(ApplicationDbContext dbContext)
+        public GenericRepository(AppDbContext dbContext)
         {
             this.dbContext = dbContext;
         }

@@ -14,12 +14,15 @@ namespace YYA.CleanArchitecture.Persistence
 {
     public static class ServiceRegistrar
     {
-        public static void AddPersistanceServices(this IServiceCollection serviceCollection)
+        public static void AddPersistanceServices(this IServiceCollection serviceCollection , bool useInMemoryDb = false)
         {
-            serviceCollection.AddDbContext<ApplicationDbContext>(opt => opt.UseInMemoryDatabase("memoryDb"));
+            if (useInMemoryDb)
+                serviceCollection.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("memoryDatabase"));
+
 
             serviceCollection.AddTransient<IProductRepository, ProductRepository>();
 
+            
         }
 
     }

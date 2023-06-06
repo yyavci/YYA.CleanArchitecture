@@ -12,10 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\YYA.CleanArchitecture.Application\YYA.CleanArchitecture.Application.csproj" />
     <ProjectReference Include="..\YYA.CleanArchitecture.Persistence\YYA.CleanArchitecture.Persistence.csproj" />
   </ItemGroup>

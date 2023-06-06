@@ -11,7 +11,7 @@ namespace YYA.CleanArchitecture.Persistence.Repositories
 {
     public class ProductRepository : GenericRepository<Product> , IProductRepository
     {
-        public ProductRepository(ApplicationDbContext dbContext): base(dbContext)
+        public ProductRepository(AppDbContext dbContext): base(dbContext)
         {
 
         }
