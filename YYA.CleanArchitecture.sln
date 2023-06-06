@@ -13,11 +13,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.CleanArchitecture.Appli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E0B4B30E-1DF2-46C7-8841-F8ED3D06D1CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YYA.CleanArchitecture.Persistence", "src\YYA.CleanArchitecture.Persistence\YYA.CleanArchitecture.Persistence.csproj", "{CFE5A366-6C69-45C9-B84F-485376DF6930}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.CleanArchitecture.Persistence", "src\YYA.CleanArchitecture.Persistence\YYA.CleanArchitecture.Persistence.csproj", "{CFE5A366-6C69-45C9-B84F-485376DF6930}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{8A5E222E-F041-45A8-A8D0-3DA4D366AA65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YYA.CleanArchitecture.WebApi", "src\YYA.CleanArchitecture.WebApi\YYA.CleanArchitecture.WebApi.csproj", "{2CD77DF0-887E-4F6E-B136-9394047DD07A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.CleanArchitecture.WebApi", "src\YYA.CleanArchitecture.WebApi\YYA.CleanArchitecture.WebApi.csproj", "{2CD77DF0-887E-4F6E-B136-9394047DD07A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FDE00BDB-FF36-47E4-8537-B6E3FDBA3345}"
+	ProjectSection(SolutionItems) = preProject
+		docs\onion_arch.png = docs\onion_arch.png
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

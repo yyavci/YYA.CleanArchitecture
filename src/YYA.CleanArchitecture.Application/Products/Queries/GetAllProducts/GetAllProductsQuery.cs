@@ -14,27 +14,6 @@ namespace YYA.CleanArchitecture.Application.Products.Queries.GetAllProducts
     {
 
 
-        public class GetAllProductsQueryHandler : IRequestHandler<GetAllProductsQuery, ServiceResponse<IList<GetAllProductsDto>>>
-        {
-            private readonly IProductRepository productRepository;
-            private readonly IMapper mapper;
 
-            public GetAllProductsQueryHandler(IProductRepository productRepository, IMapper mapper)
-            {
-                this.productRepository = productRepository;
-                this.mapper = mapper;
-            }
-
-            public async Task<ServiceResponse<IList<GetAllProductsDto>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
-            {
-                var entities = await productRepository.GetAll();
-
-                var response = mapper.Map<IList<GetAllProductsDto>>(entities);
-
-                return new ServiceResponse<IList<GetAllProductsDto>>(response);
-
-            }
-
-        }
     }
 }
