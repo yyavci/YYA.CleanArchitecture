@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YYA.CleanArchitecture.Domain.Entities;
 
-namespace YYA.CleanArchitecture.Domain.Repositories
+namespace YYA.CleanArchitecture.Application.Repositories
 {
     public interface IProductRepository : IGenericRepository<Product>
     {

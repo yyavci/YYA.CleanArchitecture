@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YYA.CleanArchitecture.Domain.Common;
-using YYA.CleanArchitecture.Domain.Repositories;
+using YYA.CleanArchitecture.Application.Repositories;
 using YYA.CleanArchitecture.Persistence.Context;
 
 namespace YYA.CleanArchitecture.Persistence.Repositories

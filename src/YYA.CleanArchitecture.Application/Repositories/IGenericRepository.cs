@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using YYA.CleanArchitecture.Domain.Common;
 
-namespace YYA.CleanArchitecture.Domain.Repositories
+namespace YYA.CleanArchitecture.Application.Repositories
 {
     public interface IGenericRepository<T> where T : Entity
     {

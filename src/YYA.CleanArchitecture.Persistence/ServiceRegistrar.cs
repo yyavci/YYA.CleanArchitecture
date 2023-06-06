@@ -6,7 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using YYA.CleanArchitecture.Domain.Repositories;
+using YYA.CleanArchitecture.Application.Repositories;
 using YYA.CleanArchitecture.Persistence.Context;
 using YYA.CleanArchitecture.Persistence.Repositories;
 
