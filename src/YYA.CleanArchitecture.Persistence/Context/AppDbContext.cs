@@ -32,6 +32,7 @@ namespace YYA.CleanArchitecture.Persistence.Context
             //(
             //    new Product() { Id = 1, Name = "Ürün 1", CreatedOnUtc = DateTime.UtcNow, UpdatedOnUtc = DateTime.UtcNow }
             //);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
 
             base.OnModelCreating(modelBuilder);
         }

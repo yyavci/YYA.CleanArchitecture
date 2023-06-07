@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,8 @@ namespace YYA.CleanArchitecture.Application
 
             serviceCollection.AddAutoMapper(assembly);
             serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+            
+            serviceCollection.AddValidatorsFromAssembly(assembly);
 
         }
     }

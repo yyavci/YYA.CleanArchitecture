@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,17 +15,24 @@ namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, ServiceResponse<CreateProductDto>>
     {
+        private readonly IValidator<CreateProductCommand> validator;
         private readonly IMapper mapper;
         private readonly IProductRepository productRepository;
 
-        public CreateProductCommandHandler(IMapper mapper, IProductRepository productRepository)
+        public CreateProductCommandHandler(IValidator<CreateProductCommand> validator,IMapper mapper, IProductRepository productRepository)
         {
+            this.validator = validator;
             this.mapper = mapper;
             this.productRepository = productRepository;
         }
 
         public async Task<ServiceResponse<CreateProductDto>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
+            var validationResult = await validator.ValidateAsync(request);
+
+            if (validationResult != null && !validationResult.IsValid)
+                return new ServiceResponse<CreateProductDto>().Fail(validationResult);
+
             Product entity = mapper.Map<Product>(request);
 
             entity = await productRepository.Add(entity);
