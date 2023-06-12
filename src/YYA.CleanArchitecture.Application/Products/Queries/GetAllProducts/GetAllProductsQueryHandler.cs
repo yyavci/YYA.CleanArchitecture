@@ -23,6 +23,9 @@ namespace YYA.CleanArchitecture.Application.Products.Queries.GetAllProducts
 
         public async Task<ServiceResponse<IList<GetAllProductsDto>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
         {
+            if (request == null)
+                throw new ArgumentNullException($"{nameof(request)} cannot be null!");
+
             var entities = await productRepository.GetAll();
 
             var response = mapper.Map<IList<GetAllProductsDto>>(entities);

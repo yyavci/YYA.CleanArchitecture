@@ -28,6 +28,9 @@ namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
 
         public async Task<ServiceResponse<CreateProductDto>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
+            if(request == null)
+                throw new ArgumentNullException($"{nameof(request)} cannot be null!");
+
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult != null && !validationResult.IsValid)

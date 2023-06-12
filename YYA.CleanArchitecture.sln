@@ -24,6 +24,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FDE00BDB-F
 		docs\onion_arch.png = docs\onion_arch.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BE35FEFF-50BF-470C-911F-B10E05E2E34C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YYA.CleanArchitecture.Application.Tests", "tests\YYA.CleanArchitecture.Application.Tests\YYA.CleanArchitecture.Application.Tests.csproj", "{87860BA9-76F2-4F11-B054-4C501D03AAC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +50,10 @@ Global
 		{2CD77DF0-887E-4F6E-B136-9394047DD07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CD77DF0-887E-4F6E-B136-9394047DD07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CD77DF0-887E-4F6E-B136-9394047DD07A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87860BA9-76F2-4F11-B054-4C501D03AAC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87860BA9-76F2-4F11-B054-4C501D03AAC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87860BA9-76F2-4F11-B054-4C501D03AAC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87860BA9-76F2-4F11-B054-4C501D03AAC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +66,7 @@ Global
 		{CFE5A366-6C69-45C9-B84F-485376DF6930} = {E0B4B30E-1DF2-46C7-8841-F8ED3D06D1CF}
 		{8A5E222E-F041-45A8-A8D0-3DA4D366AA65} = {647B7D26-0679-4C9F-8979-2599DB571648}
 		{2CD77DF0-887E-4F6E-B136-9394047DD07A} = {8A5E222E-F041-45A8-A8D0-3DA4D366AA65}
+		{87860BA9-76F2-4F11-B054-4C501D03AAC6} = {BE35FEFF-50BF-470C-911F-B10E05E2E34C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8211030C-E7A4-4A1C-9020-09DC0A6907E9}
