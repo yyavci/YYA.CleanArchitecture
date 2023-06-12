@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YYA.CleanArchitecture.Application.Extensions;
 using YYA.CleanArchitecture.Application.Repositories;
 using YYA.CleanArchitecture.Application.Wrappers;
 using YYA.CleanArchitecture.Domain.Entities;
@@ -34,7 +35,7 @@ namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
             var validationResult = await validator.ValidateAsync(request);
 
             if (validationResult != null && !validationResult.IsValid)
-                return new ServiceResponse<CreateProductDto>().Fail(validationResult);
+                return new ServiceResponse<CreateProductDto>().Fail(validationResult.ValidationErrors());
 
             Product entity = mapper.Map<Product>(request);
 

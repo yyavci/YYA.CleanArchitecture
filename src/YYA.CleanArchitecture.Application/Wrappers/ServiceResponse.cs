@@ -30,19 +30,5 @@ namespace YYA.CleanArchitecture.Application.Wrappers
             return this;
 
         }
-        public ServiceResponse<T> Fail(ValidationResult validationResult)
-        {
-            if (validationResult == null)
-                return this;
-
-            if (validationResult.IsValid)
-                return this;
-
-            Message = string.Join("/n", validationResult.Errors.Select(f => f.ErrorMessage));
-            Success = false;
-                
-            return this;
-
-        }
     }
 }
