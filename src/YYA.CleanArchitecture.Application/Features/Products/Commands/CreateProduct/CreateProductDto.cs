@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using YYA.CleanArchitecture.Application.Mappings;
 using YYA.CleanArchitecture.Domain.Entities;
 
-namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
+namespace YYA.CleanArchitecture.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductDto : IMapFrom<Product>
     {

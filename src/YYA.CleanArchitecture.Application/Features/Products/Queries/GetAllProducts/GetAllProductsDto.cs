@@ -8,7 +8,7 @@ using YYA.CleanArchitecture.Application.Mappings;
 using YYA.CleanArchitecture.Application.Products.Commands.CreateProduct;
 using YYA.CleanArchitecture.Domain.Entities;
 
-namespace YYA.CleanArchitecture.Application.Products.Queries.GetAllProducts
+namespace YYA.CleanArchitecture.Application.Features.Products.Queries.GetAllProducts
 {
     public class GetAllProductsDto : IMapFrom<Product>
     {

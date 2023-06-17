@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using YYA.CleanArchitecture.Application.Repositories;
 using YYA.CleanArchitecture.Application.Wrappers;
 
-namespace YYA.CleanArchitecture.Application.Products.Queries.GetAllProducts
+namespace YYA.CleanArchitecture.Application.Features.Products.Queries.GetAllProducts
 {
     public class GetAllProductsQuery : IRequest<ServiceResponse<IList<GetAllProductsDto>>>
     {
