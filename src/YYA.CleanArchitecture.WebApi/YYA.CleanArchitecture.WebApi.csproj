@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\YYA.CleanArchitecture.Application\YYA.CleanArchitecture.Application.csproj" />
+    <ProjectReference Include="..\YYA.CleanArchitecture.Middlewares\YYA.CleanArchitecture.Middlewares.csproj" />
     <ProjectReference Include="..\YYA.CleanArchitecture.Persistence\YYA.CleanArchitecture.Persistence.csproj" />
   </ItemGroup>
 

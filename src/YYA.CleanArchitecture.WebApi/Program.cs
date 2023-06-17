@@ -2,6 +2,7 @@ using YYA.CleanArchitecture.Persistence;
 using YYA.CleanArchitecture.Application;
 using YYA.CleanArchitecture.Persistence.Context;
 using Microsoft.AspNetCore.HttpLogging;
+using YYA.CleanArchitecture.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +52,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.UseHttpLogging();
+
+//adds middlewares from infrastucture.middlewares
+app.AddCustomMiddlewares();
 
 //seed data
 if (useInMemoryDb)
