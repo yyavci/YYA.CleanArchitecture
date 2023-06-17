@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using YYA.CleanArchitecture.Application.Features.Products.Queries.GetAllProducts;
-using YYA.CleanArchitecture.Application.Products.Commands.CreateProduct;
 using YYA.CleanArchitecture.Application.Repositories;
 
 namespace YYA.CleanArchitecture.Application.Tests.Products.Queries.GetAllProducts

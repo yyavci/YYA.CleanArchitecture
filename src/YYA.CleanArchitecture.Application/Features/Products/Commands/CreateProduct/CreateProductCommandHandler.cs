@@ -12,7 +12,7 @@ using YYA.CleanArchitecture.Application.Repositories;
 using YYA.CleanArchitecture.Application.Wrappers;
 using YYA.CleanArchitecture.Domain.Entities;
 
-namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
+namespace YYA.CleanArchitecture.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, ServiceResponse<CreateProductDto>>
     {
@@ -20,7 +20,7 @@ namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
         private readonly IMapper mapper;
         private readonly IProductRepository productRepository;
 
-        public CreateProductCommandHandler(IValidator<CreateProductCommand> validator,IMapper mapper, IProductRepository productRepository)
+        public CreateProductCommandHandler(IValidator<CreateProductCommand> validator, IMapper mapper, IProductRepository productRepository)
         {
             this.validator = validator;
             this.mapper = mapper;
@@ -29,7 +29,7 @@ namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
 
         public async Task<ServiceResponse<CreateProductDto>> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            if(request == null)
+            if (request == null)
                 throw new ArgumentNullException($"{nameof(request)} cannot be null!");
 
             var validationResult = await validator.ValidateAsync(request);

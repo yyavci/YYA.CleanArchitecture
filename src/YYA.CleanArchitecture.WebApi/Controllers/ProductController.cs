@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YYA.CleanArchitecture.Application.Features.Products.Commands.CreateProduct;
-using YYA.CleanArchitecture.Application.Products.Queries.GetAllProducts;
+using YYA.CleanArchitecture.Application.Features.Products.Queries.GetAllProducts;
 
 namespace YYA.CleanArchitecture.WebApi.Controllers
 {
