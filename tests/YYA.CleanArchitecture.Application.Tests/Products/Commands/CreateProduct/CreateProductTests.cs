@@ -2,7 +2,7 @@ using AutoMapper;
 using FluentAssertions;
 using FluentValidation;
 using Moq;
-using YYA.CleanArchitecture.Application.Products.Commands.CreateProduct;
+using YYA.CleanArchitecture.Application.Features.Products.Commands.CreateProduct;
 using YYA.CleanArchitecture.Application.Repositories;
 
 namespace YYA.CleanArchitecture.Application.Tests.Products.Commands.CreateProduct

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YYA.CleanArchitecture.Application.Products.Commands.CreateProduct
+namespace YYA.CleanArchitecture.Application.Features.Products.Commands.CreateProduct
 {
     public class CreateProductValidation : AbstractValidator<CreateProductCommand>
     {
