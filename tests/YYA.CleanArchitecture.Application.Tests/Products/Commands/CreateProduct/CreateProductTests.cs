@@ -9,17 +9,17 @@ namespace YYA.CleanArchitecture.Application.Tests.Products.Commands.CreateProduc
 {
     public class CreateProductTests
     {
-        Mock<IProductRepository> mockRepository;
-        Mock<IValidator<CreateProductCommand>> mockValidator;
-        Mock<IMapper> mockMapper;
+        Mock<IProductRepository> repositoryMock;
+        Mock<IValidator<CreateProductCommand>> validatorMock;
+        Mock<IMapper> mapperMock;
 
 
         [SetUp]
         public void Setup()
         {
-            mockRepository = new Mock<IProductRepository>();
-            mockValidator = new Mock<IValidator<CreateProductCommand>>();
-            mockMapper = new Mock<IMapper>();
+            repositoryMock = new Mock<IProductRepository>();
+            validatorMock = new Mock<IValidator<CreateProductCommand>>();
+            mapperMock = new Mock<IMapper>();
         }
 
 
@@ -27,7 +27,7 @@ namespace YYA.CleanArchitecture.Application.Tests.Products.Commands.CreateProduc
         [Test]
         public async Task CreateProductHandler_ShouldThrowNullException_WithNullRequest()
         {
-            CreateProductCommandHandler commandHandler = new CreateProductCommandHandler(mockValidator.Object, mockMapper.Object, mockRepository.Object);
+            CreateProductCommandHandler commandHandler = new CreateProductCommandHandler(validatorMock.Object, mapperMock.Object, repositoryMock.Object);
 
             var action = async () => await commandHandler.Handle(null, default);
 
@@ -38,7 +38,7 @@ namespace YYA.CleanArchitecture.Application.Tests.Products.Commands.CreateProduc
         [Test]
         public async Task CreateProductHandler_ShouldReturnFalseResponse_WithEmptyNameParam()
         {
-            mockValidator.Setup(x => x.ValidateAsync(It.IsAny<CreateProductCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(new FluentValidation.Results.ValidationResult()
+            validatorMock.Setup(x => x.ValidateAsync(It.IsAny<CreateProductCommand>(), It.IsAny<CancellationToken>())).ReturnsAsync(new FluentValidation.Results.ValidationResult()
             { 
                 Errors = new List<FluentValidation.Results.ValidationFailure>() 
                 {
@@ -46,7 +46,7 @@ namespace YYA.CleanArchitecture.Application.Tests.Products.Commands.CreateProduc
                 } 
             });
 
-            CreateProductCommandHandler commandHandler = new CreateProductCommandHandler(mockValidator.Object, mockMapper.Object, mockRepository.Object);
+            CreateProductCommandHandler commandHandler = new CreateProductCommandHandler(validatorMock.Object, mapperMock.Object, repositoryMock.Object);
 
             CreateProductCommand request = new CreateProductCommand();
             request.Name = "";

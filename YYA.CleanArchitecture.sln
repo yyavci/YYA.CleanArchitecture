@@ -28,7 +28,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BE35FEFF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.CleanArchitecture.Application.Tests", "tests\YYA.CleanArchitecture.Application.Tests\YYA.CleanArchitecture.Application.Tests.csproj", "{87860BA9-76F2-4F11-B054-4C501D03AAC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YYA.CleanArchitecture.Middlewares", "src\YYA.CleanArchitecture.Middlewares\YYA.CleanArchitecture.Middlewares.csproj", "{B88F6887-C070-4752-8556-EE1401E1AEB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.CleanArchitecture.Middleware", "src\YYA.CleanArchitecture.Middlewares\YYA.CleanArchitecture.Middleware.csproj", "{B88F6887-C070-4752-8556-EE1401E1AEB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YYA.CleanArchitecture.Middleware.Tests", "tests\YYA.CleanArchitecture.Middleware.Tests\YYA.CleanArchitecture.Middleware.Tests.csproj", "{89625D27-5C0E-4293-B993-FBE2D7E33723}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +62,10 @@ Global
 		{B88F6887-C070-4752-8556-EE1401E1AEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B88F6887-C070-4752-8556-EE1401E1AEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B88F6887-C070-4752-8556-EE1401E1AEB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89625D27-5C0E-4293-B993-FBE2D7E33723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89625D27-5C0E-4293-B993-FBE2D7E33723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89625D27-5C0E-4293-B993-FBE2D7E33723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89625D27-5C0E-4293-B993-FBE2D7E33723}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{2CD77DF0-887E-4F6E-B136-9394047DD07A} = {8A5E222E-F041-45A8-A8D0-3DA4D366AA65}
 		{87860BA9-76F2-4F11-B054-4C501D03AAC6} = {BE35FEFF-50BF-470C-911F-B10E05E2E34C}
 		{B88F6887-C070-4752-8556-EE1401E1AEB5} = {E0B4B30E-1DF2-46C7-8841-F8ED3D06D1CF}
+		{89625D27-5C0E-4293-B993-FBE2D7E33723} = {BE35FEFF-50BF-470C-911F-B10E05E2E34C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8211030C-E7A4-4A1C-9020-09DC0A6907E9}

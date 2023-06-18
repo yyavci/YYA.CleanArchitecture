@@ -14,21 +14,21 @@ namespace YYA.CleanArchitecture.Application.Tests.Products.Queries.GetAllProduct
 {
     public class GetAllProductsTests
     {
-        Mock<IProductRepository> mockRepository;
-        Mock<IMapper> mockMapper;
+        Mock<IProductRepository> repositoryMock;
+        Mock<IMapper> mapperMock;
 
 
         [SetUp]
         public void Setup()
         {
-            mockRepository = new Mock<IProductRepository>();
-            mockMapper = new Mock<IMapper>();
+            repositoryMock = new Mock<IProductRepository>();
+            mapperMock = new Mock<IMapper>();
         }
 
         [Test]
         public async Task CreateProductHandler_ShouldThrowNullException_WithNullRequest()
         {
-            GetAllProductsQueryHandler queryHandler = new GetAllProductsQueryHandler(mockRepository.Object,mockMapper.Object);
+            GetAllProductsQueryHandler queryHandler = new GetAllProductsQueryHandler(repositoryMock.Object, mapperMock.Object);
 
             var action = async () => await queryHandler.Handle(null, default);
 
