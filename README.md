@@ -1,4 +1,4 @@
-# YYA.CleanArchitecture
+# YYA.OnionArchitecture
 :wave:
 ## Introduction
 This solution contains a .NET Core app built on the onion architecture with some extra features
