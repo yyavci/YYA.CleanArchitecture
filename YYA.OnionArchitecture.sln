@@ -7,17 +7,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{647B7D26-067
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F0209937-272A-4CDD-8013-669802EED0E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Domain", "src\YYA.OnionArchitecture.Domain\YYA.OnionArchitecture.Domain.csproj", "{9537B462-1D5B-4CAD-8B1E-72794864B12C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Domain", "src\Core\YYA.OnionArchitecture.Domain\YYA.OnionArchitecture.Domain.csproj", "{9537B462-1D5B-4CAD-8B1E-72794864B12C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Application", "src\YYA.OnionArchitecture.Application\YYA.OnionArchitecture.Application.csproj", "{279544FD-101E-4324-B253-4A0A67EFFE76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Application", "src\Core\YYA.OnionArchitecture.Application\YYA.OnionArchitecture.Application.csproj", "{279544FD-101E-4324-B253-4A0A67EFFE76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E0B4B30E-1DF2-46C7-8841-F8ED3D06D1CF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Persistence", "src\YYA.OnionArchitecture.Persistence\YYA.OnionArchitecture.Persistence.csproj", "{CFE5A366-6C69-45C9-B84F-485376DF6930}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Persistence", "src\Infrastructure\YYA.OnionArchitecture.Persistence\YYA.OnionArchitecture.Persistence.csproj", "{CFE5A366-6C69-45C9-B84F-485376DF6930}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{8A5E222E-F041-45A8-A8D0-3DA4D366AA65}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.WebApi", "src\YYA.OnionArchitecture.WebApi\YYA.OnionArchitecture.WebApi.csproj", "{2CD77DF0-887E-4F6E-B136-9394047DD07A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.WebApi", "src\WebApi\YYA.OnionArchitecture.WebApi\YYA.OnionArchitecture.WebApi.csproj", "{2CD77DF0-887E-4F6E-B136-9394047DD07A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{FDE00BDB-FF36-47E4-8537-B6E3FDBA3345}"
 	ProjectSection(SolutionItems) = preProject
@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BE35FEFF
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Application.Tests", "tests\YYA.OnionArchitecture.Application.Tests\YYA.OnionArchitecture.Application.Tests.csproj", "{87860BA9-76F2-4F11-B054-4C501D03AAC6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Middleware", "src\YYA.OnionArchitecture.Middlewares\YYA.OnionArchitecture.Middleware.csproj", "{B88F6887-C070-4752-8556-EE1401E1AEB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Middleware", "src\Infrastructure\YYA.OnionArchitecture.Middlewares\YYA.OnionArchitecture.Middleware.csproj", "{B88F6887-C070-4752-8556-EE1401E1AEB5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YYA.OnionArchitecture.Middleware.Tests", "tests\YYA.OnionArchitecture.Middleware.Tests\YYA.OnionArchitecture.Middleware.Tests.csproj", "{89625D27-5C0E-4293-B993-FBE2D7E33723}"
 EndProject

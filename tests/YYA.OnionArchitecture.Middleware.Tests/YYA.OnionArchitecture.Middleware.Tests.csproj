@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\YYA.OnionArchitecture.Middlewares\YYA.OnionArchitecture.Middleware.csproj" />
+    <ProjectReference Include="..\..\src\Infrastructure\YYA.OnionArchitecture.Middlewares\YYA.OnionArchitecture.Middleware.csproj" />
   </ItemGroup>
 
 </Project>

@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\YYA.OnionArchitecture.Application\YYA.OnionArchitecture.Application.csproj" />
-    <ProjectReference Include="..\YYA.OnionArchitecture.Middlewares\YYA.OnionArchitecture.Middleware.csproj" />
-    <ProjectReference Include="..\YYA.OnionArchitecture.Persistence\YYA.OnionArchitecture.Persistence.csproj" />
+    <ProjectReference Include="..\..\Core\YYA.OnionArchitecture.Application\YYA.OnionArchitecture.Application.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\YYA.OnionArchitecture.Middlewares\YYA.OnionArchitecture.Middleware.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\YYA.OnionArchitecture.Persistence\YYA.OnionArchitecture.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

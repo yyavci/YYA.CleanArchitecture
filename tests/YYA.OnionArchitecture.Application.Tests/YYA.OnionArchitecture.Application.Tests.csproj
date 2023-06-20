@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\YYA.OnionArchitecture.Application\YYA.OnionArchitecture.Application.csproj" />
-    <ProjectReference Include="..\..\src\YYA.OnionArchitecture.Domain\YYA.OnionArchitecture.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Core\YYA.OnionArchitecture.Application\YYA.OnionArchitecture.Application.csproj" />
+    <ProjectReference Include="..\..\src\Core\YYA.OnionArchitecture.Domain\YYA.OnionArchitecture.Domain.csproj" />
   </ItemGroup>
 
 </Project>
