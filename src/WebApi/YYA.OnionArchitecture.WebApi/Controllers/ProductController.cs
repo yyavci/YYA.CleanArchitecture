@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YYA.OnionArchitecture.Application.Features.Products.Commands.CreateProduct;
@@ -6,6 +7,7 @@ using YYA.OnionArchitecture.Application.Features.Products.Queries.GetAllProducts
 
 namespace YYA.OnionArchitecture.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductController : ControllerBase

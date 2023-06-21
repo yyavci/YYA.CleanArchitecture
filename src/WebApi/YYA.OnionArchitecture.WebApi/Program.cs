@@ -3,12 +3,9 @@ using YYA.OnionArchitecture.Application;
 using YYA.OnionArchitecture.Persistence.Context;
 using Microsoft.AspNetCore.HttpLogging;
 using YYA.OnionArchitecture.Middlewares;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
-//configuration fields
-bool useInMemoryDb = builder.Configuration.GetValue<bool>("UseInMemoryDb");
-//
 
 //loggings
 builder.Services.AddHttpLogging(logging =>
@@ -29,11 +26,42 @@ builder.Services.AddLogging(conf =>
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "YYA Onion Architecture API",
+        Version = "v1"
+    });
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Please insert JWT with Bearer into field like **Bearer YOUR_JWT_TOKEN**",
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement {
+    {
+      new OpenApiSecurityScheme
+      {
+          Name = "Bearer",
+          In = ParameterLocation.Header,
+          Reference = new OpenApiReference
+          {
+            Id = "Bearer",
+            Type = ReferenceType.SecurityScheme
+          }
+      },
+      new string[] { }
+    }
+  });
+});
 
 //add dependency injections
-builder.Services.AddPersistanceServices(useInMemoryDb: useInMemoryDb);
-builder.Services.AddApplicationServices();
+builder.Services.AddPersistanceServices(builder.Configuration);
+builder.Services.AddMiddlewareServices(builder.Configuration);
+builder.Services.AddApplicationServices(builder.Configuration);
 //
 
 var app = builder.Build();
@@ -57,7 +85,7 @@ app.UseHttpLogging();
 app.AddCustomMiddlewares();
 
 //seed data
-if (useInMemoryDb)
+if (builder.Configuration.GetValue<bool>("UseInMemoryDatabase"))
 {
     using var scope = app.Services.CreateScope();
     var dataContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();

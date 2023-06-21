@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,15 @@ namespace YYA.OnionArchitecture.Persistence
 {
     public static class ServiceRegistrar
     {
-        public static void AddPersistanceServices(this IServiceCollection serviceCollection , bool useInMemoryDb = false)
+        public static void AddPersistanceServices(this IServiceCollection serviceCollection, ConfigurationManager configuration)
         {
-            if (useInMemoryDb)
+            if (configuration.GetValue<bool>("UseInMemoryDatabase"))
                 serviceCollection.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("memoryDatabase"));
 
 
             serviceCollection.AddTransient<IProductRepository, ProductRepository>();
 
-            
+
         }
 
     }
