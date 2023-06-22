@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using YYA.OnionArchitecture.Application.Authentication;
+using YYA.OnionArchitecture.Application.Settings.Authentication;
 
 namespace YYA.OnionArchitecture.Middlewares
 {
@@ -18,9 +19,13 @@ namespace YYA.OnionArchitecture.Middlewares
             webApplication.UseMiddleware<ExceptionHandler>();
         }
 
-        public static void AddMiddlewareServices(this IServiceCollection serviceCollection , ConfigurationManager configuration)
+        public static void AddMiddlewareServices(this IServiceCollection serviceCollection, ConfigurationManager configuration)
         {
             //jwt authentication
+            var jwtSection = configuration.GetSection(nameof(JwtSettings));
+            serviceCollection.Configure<JwtSettings>(opt => jwtSection.Bind(opt));
+            var jwtSettings = jwtSection.Get<JwtSettings>();
+
             serviceCollection.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -34,12 +39,11 @@ namespace YYA.OnionArchitecture.Middlewares
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_ISSUER),
-                    ValidAudience = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_AUDIENCE),
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_SECURITY_KEY)))
+                    ValidIssuer = jwtSettings.Issuer,
+                    ValidAudience = jwtSettings.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecurityKey))
                 };
             });
-
         }
     }
 }

@@ -13,11 +13,6 @@ namespace YYA.OnionArchitecture.Application.Authentication
 {
     public class JwtTokenGenerator
     {
-        public const string KEY_JWT_SECURITY_KEY = "JwtSecurityKey";
-        public const string KEY_JWT_ISSUER = "JwtIssuer";
-        public const string KEY_JWT_AUDIENCE = "JwtAudience";
-        public const string KEY_JWT_EXPIRATION_DAYS = "JwtExpirationDays";
-
         private JwtSettings settings;
         public string Token { get; private set; }
         public JwtSecurityToken SecurityToken { get; private set; }

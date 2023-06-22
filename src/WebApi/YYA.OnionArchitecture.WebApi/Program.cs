@@ -19,6 +19,9 @@ builder.Services.AddLogging(conf =>
 {
     conf.AddConsole();
 });
+
+
+builder.Services.AddOptions();
 //
 
 // Add services to the container.

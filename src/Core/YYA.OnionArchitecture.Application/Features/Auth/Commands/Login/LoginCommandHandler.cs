@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,13 @@ namespace YYA.OnionArchitecture.Application.Features.Auth.Commands.Login
     public class LoginCommandHandler : IRequestHandler<LoginCommand, ServiceResponse<LoginDto>>
     {
         private readonly IValidator<LoginCommand> validator;
-        private readonly IConfiguration configuration;
+        private readonly JwtSettings jwtSettings;
 
-        public LoginCommandHandler(IValidator<LoginCommand> validator, IConfiguration configuration)
+        public LoginCommandHandler(IValidator<LoginCommand> validator, IOptions<JwtSettings> jwtSettings)
         {
             this.validator = validator;
-            this.configuration = configuration;
+            this.jwtSettings = jwtSettings.Value;
+
         }
 
         public async Task<ServiceResponse<LoginDto>> Handle(LoginCommand request, CancellationToken cancellationToken)
@@ -38,7 +40,7 @@ namespace YYA.OnionArchitecture.Application.Features.Auth.Commands.Login
             //TODO validate user&pass from db
 
             LoginDto response = new LoginDto();
-            JwtTokenGenerator tokenGenerator = new JwtTokenGenerator(GetJwtSettings());
+            JwtTokenGenerator tokenGenerator = new JwtTokenGenerator(jwtSettings);
 
             tokenGenerator.GenerateToken(request.Email);
 
@@ -48,18 +50,5 @@ namespace YYA.OnionArchitecture.Application.Features.Auth.Commands.Login
 
         }
 
-
-        private JwtSettings GetJwtSettings()
-        {
-            JwtSettings settings = new JwtSettings();
-            settings.Issuer = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_ISSUER);
-            settings.Audience = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_AUDIENCE);
-            settings.ExpirationDay = configuration.GetValue<int>(JwtTokenGenerator.KEY_JWT_EXPIRATION_DAYS);
-            settings.SecurityKey = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_SECURITY_KEY);
-
-            return settings;
-        }
-
-        
     }
 }
