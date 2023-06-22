@@ -7,8 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using YYA.OnionArchitecture.Middleware.Authentication;
+using YYA.OnionArchitecture.Application.Authentication;
 
 namespace YYA.OnionArchitecture.Middlewares
 {
@@ -21,8 +20,6 @@ namespace YYA.OnionArchitecture.Middlewares
 
         public static void AddMiddlewareServices(this IServiceCollection serviceCollection , ConfigurationManager configuration)
         {
-            serviceCollection.AddTransient<IAuthService, AuthService>();
-
             //jwt authentication
             serviceCollection.AddAuthentication(opt =>
             {
@@ -37,9 +34,9 @@ namespace YYA.OnionArchitecture.Middlewares
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = configuration.GetValue<string>(IAuthService.KEY_JWT_ISSUER),
-                    ValidAudience = configuration.GetValue<string>(IAuthService.KEY_JWT_AUDIENCE),
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>(IAuthService.KEY_JWT_SECURITY_KEY)))
+                    ValidIssuer = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_ISSUER),
+                    ValidAudience = configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_AUDIENCE),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>(JwtTokenGenerator.KEY_JWT_SECURITY_KEY)))
                 };
             });
 

@@ -8,6 +8,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using YYA.OnionArchitecture.Application.Settings;
+using YYA.OnionArchitecture.Application.Settings.Authentication;
 
 namespace YYA.OnionArchitecture.Application
 {

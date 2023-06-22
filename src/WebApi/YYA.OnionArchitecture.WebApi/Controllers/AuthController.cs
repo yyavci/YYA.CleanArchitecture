@@ -1,8 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using YYA.OnionArchitecture.Application.Features.Auth.Commands.Login;
 using YYA.OnionArchitecture.Application.Features.Products.Queries.GetAllProducts;
-using YYA.OnionArchitecture.Middleware.Authentication;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace YYA.OnionArchitecture.WebApi.Controllers
 {
@@ -10,22 +11,19 @@ namespace YYA.OnionArchitecture.WebApi.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IAuthService authService;
+        private readonly IMediator mediator;
 
-        public AuthController(IAuthService authService)
+        public AuthController(IMediator mediator)
         {
-            this.authService = authService;
+            this.mediator = mediator;
         }
 
 
-        [Route("Authenticate")]
+        [Route("Login")]
         [HttpPost()]
-        public IActionResult Authenticate(string email , string password)
+        public async Task<IActionResult> Login(LoginCommand command)
         {
-
-            //TODO validate email & pass from db
-            var token = authService.GenerateJwtToken(email);
-            return Ok(token);
+            return Ok(await mediator.Send(command));
 
         }
 
