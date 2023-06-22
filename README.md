@@ -12,3 +12,4 @@ This solution contains a .NET Core app built on the onion architecture with some
 - Unit Testing via Nunit , FluentAssertions and Moq
 - Swagger
 - Logging
+- Authentication via JwtToken
