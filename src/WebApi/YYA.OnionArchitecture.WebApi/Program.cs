@@ -22,6 +22,7 @@ builder.Services.AddLogging(conf =>
 
 
 builder.Services.AddOptions();
+builder.Configuration.AddUserSecrets<Program>();
 //
 
 // Add services to the container.
