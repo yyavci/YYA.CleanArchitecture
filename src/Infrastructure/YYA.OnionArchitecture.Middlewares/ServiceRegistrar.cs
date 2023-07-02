@@ -26,6 +26,9 @@ namespace YYA.OnionArchitecture.Middlewares
             serviceCollection.Configure<JwtSettings>(opt => jwtSection.Bind(opt));
             var jwtSettings = jwtSection.Get<JwtSettings>();
 
+            if (jwtSettings is null)
+                return;
+
             serviceCollection.AddAuthentication(opt =>
             {
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -41,7 +44,7 @@ namespace YYA.OnionArchitecture.Middlewares
                     ValidateIssuerSigningKey = true,
                     ValidIssuer = jwtSettings.Issuer,
                     ValidAudience = jwtSettings.Audience,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecurityKey))
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecurityKey!))
                 };
             });
         }

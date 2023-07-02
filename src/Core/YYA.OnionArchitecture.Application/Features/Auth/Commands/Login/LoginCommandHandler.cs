@@ -42,7 +42,7 @@ namespace YYA.OnionArchitecture.Application.Features.Auth.Commands.Login
             LoginDto response = new LoginDto();
             JwtTokenGenerator tokenGenerator = new JwtTokenGenerator(jwtSettings);
 
-            tokenGenerator.GenerateToken(request.Email);
+            tokenGenerator.GenerateToken(request.Email!);
 
             response.Token = tokenGenerator.Token;
 

@@ -14,7 +14,7 @@ namespace YYA.OnionArchitecture.Application.Features.Products.Commands.CreatePro
 {
     public class CreateProductCommand : IRequest<ServiceResponse<CreateProductDto>>, IMapFrom<Product>
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public void Mapping(Profile profile)
         {

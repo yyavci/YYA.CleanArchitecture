@@ -14,17 +14,20 @@ namespace YYA.OnionArchitecture.Application.Authentication
     public class JwtTokenGenerator
     {
         private JwtSettings settings;
-        public string Token { get; private set; }
+        public string? Token { get; private set; }
         public JwtSecurityToken SecurityToken { get; private set; }
 
         public JwtTokenGenerator(JwtSettings settings)
         {
+            if(settings is null)
+                throw new ArgumentNullException(nameof(settings));
+
             this.settings = settings;
         }
 
         public void GenerateToken(string email)
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.SecurityKey));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.SecurityKey!));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var expiry = DateTime.UtcNow.AddDays(settings.ExpirationDay);
 

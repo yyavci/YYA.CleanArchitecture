@@ -8,6 +8,6 @@ namespace YYA.OnionArchitecture.Application.Features.Auth.Commands.Login
 {
     public class LoginDto
     {
-        public string Token { get; set; }
+        public string? Token { get; set; }
     }
 }

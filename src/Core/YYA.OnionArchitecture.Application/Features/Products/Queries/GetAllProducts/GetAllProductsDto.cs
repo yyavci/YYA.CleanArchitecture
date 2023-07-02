@@ -12,7 +12,7 @@ namespace YYA.OnionArchitecture.Application.Features.Products.Queries.GetAllProd
     public class GetAllProductsDto : IMapFrom<Product>
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public void Mapping(Profile profile)
         {
