@@ -54,9 +54,6 @@ builder.AddApplicationServices();
 
 var app = builder.Build();
 
-//adds middlewares from infrastucture.middlewares
-app.AddCustomMiddlewares();
-
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -67,6 +64,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+//adds middlewares from infrastucture.middlewares
+app.AddCustomMiddlewares();
 
 app.MapControllers();
 
