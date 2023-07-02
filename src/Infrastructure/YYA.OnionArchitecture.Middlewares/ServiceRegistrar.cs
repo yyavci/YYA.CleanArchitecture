@@ -7,8 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using YYA.OnionArchitecture.Application.Authentication;
 using YYA.OnionArchitecture.Application.Settings.Authentication;
+using Serilog;
+using Serilog.Events;
+using Newtonsoft.Json;
 
 namespace YYA.OnionArchitecture.Middlewares
 {
@@ -17,9 +19,30 @@ namespace YYA.OnionArchitecture.Middlewares
         public static void AddCustomMiddlewares(this WebApplication webApplication)
         {
             webApplication.UseMiddleware<ExceptionHandler>();
+            webApplication.UseSerilogRequestLogging(options =>
+            {
+                // Customize the message template
+                options.MessageTemplate = "-> {RequestMethod} {StatusCode} {RequestPath} [{Elapsed:0.000}ms] ";
+
+                // Emit debug-level events instead of the defaults
+                options.GetLevel = (httpContext, elapsed, ex) => LogEventLevel.Debug;
+                
+                // Attach additional properties to the request completion event
+                options.EnrichDiagnosticContext = (diagnosticContext, httpContext) =>
+                {
+                    diagnosticContext.Set("RequestHost", httpContext.Request.Host.Value);
+                    diagnosticContext.Set("RequestScheme", httpContext.Request.Scheme);
+                };
+            });
         }
 
-        public static void AddMiddlewareServices(this IServiceCollection serviceCollection, ConfigurationManager configuration)
+        public static void AddMiddlewareServices(this WebApplicationBuilder builder)
+        {
+            AddSeriLog(builder);
+            AddJwt(builder.Services, builder.Configuration);
+        }
+
+        private static void AddJwt(IServiceCollection serviceCollection, ConfigurationManager configuration)
         {
             //jwt authentication
             var jwtSection = configuration.GetSection(nameof(JwtSettings));
@@ -47,6 +70,19 @@ namespace YYA.OnionArchitecture.Middlewares
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSettings.SecurityKey!))
                 };
             });
+        }
+
+        private static void AddSeriLog(WebApplicationBuilder builder)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(builder.Configuration)
+                .Enrich.FromLogContext()
+                .CreateLogger();
+
+            builder.Host.UseSerilog();
+
+
+
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using YYA.OnionArchitecture.Application.Features.Auth.Commands.Login;
-using YYA.OnionArchitecture.Application.Features.Products.Queries.GetAllProducts;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace YYA.OnionArchitecture.WebApi.Controllers
 {

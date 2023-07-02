@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -15,14 +16,14 @@ namespace YYA.OnionArchitecture.Application
 {
     public static class ServiceRegistrar
     {
-        public static void AddApplicationServices(this IServiceCollection serviceCollection, ConfigurationManager configuration)
+        public static void AddApplicationServices(this WebApplicationBuilder builder)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
-            serviceCollection.AddAutoMapper(assembly);
-            serviceCollection.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+            builder.Services.AddAutoMapper(assembly);
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
 
-            serviceCollection.AddValidatorsFromAssembly(assembly);
+            builder.Services.AddValidatorsFromAssembly(assembly);
 
         }
     }

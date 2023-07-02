@@ -7,26 +7,10 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//loggings
-builder.Services.AddHttpLogging(logging =>
-{
-    logging.LoggingFields = HttpLoggingFields.All;
-    logging.RequestBodyLogLimit = 4096;
-    logging.ResponseBodyLogLimit = 4096;
-});
-
-builder.Services.AddLogging(conf =>
-{
-    conf.AddConsole();
-});
-
-
 builder.Services.AddOptions();
 builder.Configuration.AddUserSecrets<Program>();
-//
 
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -63,12 +47,15 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 //add dependency injections
-builder.Services.AddPersistanceServices(builder.Configuration);
-builder.Services.AddMiddlewareServices(builder.Configuration);
-builder.Services.AddApplicationServices(builder.Configuration);
+builder.AddPersistanceServices();
+builder.AddMiddlewareServices();
+builder.AddApplicationServices();
 //
 
 var app = builder.Build();
+
+//adds middlewares from infrastucture.middlewares
+app.AddCustomMiddlewares();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -82,11 +69,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.UseHttpLogging();
-
-//adds middlewares from infrastucture.middlewares
-app.AddCustomMiddlewares();
 
 //seed data
 if (builder.Configuration.GetValue<bool>("UseInMemoryDatabase"))

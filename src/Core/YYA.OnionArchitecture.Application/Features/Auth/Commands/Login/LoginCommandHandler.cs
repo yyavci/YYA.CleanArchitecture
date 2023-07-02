@@ -1,6 +1,7 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,13 @@ namespace YYA.OnionArchitecture.Application.Features.Auth.Commands.Login
     {
         private readonly IValidator<LoginCommand> validator;
         private readonly JwtSettings jwtSettings;
+        private readonly ILogger<LoginCommandHandler> _logger;
 
-        public LoginCommandHandler(IValidator<LoginCommand> validator, IOptions<JwtSettings> jwtSettings)
+        public LoginCommandHandler(IValidator<LoginCommand> validator, IOptions<JwtSettings> jwtSettings, ILogger<LoginCommandHandler> logger)
         {
             this.validator = validator;
             this.jwtSettings = jwtSettings.Value;
-
+            _logger = logger;
         }
 
         public async Task<ServiceResponse<LoginDto>> Handle(LoginCommand request, CancellationToken cancellationToken)
