@@ -11,6 +11,7 @@ using YYA.OnionArchitecture.Application.Settings.Authentication;
 using Serilog;
 using Serilog.Events;
 using Newtonsoft.Json;
+using Serilog.Sinks.Graylog;
 
 namespace YYA.OnionArchitecture.Middlewares
 {
@@ -80,6 +81,8 @@ namespace YYA.OnionArchitecture.Middlewares
                 .CreateLogger();
 
             builder.Host.UseSerilog();
+
+            Log.Logger.Error("graylog serilog test");
 
 
 

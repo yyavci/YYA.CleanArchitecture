@@ -1,7 +1,6 @@
 using YYA.OnionArchitecture.Persistence;
 using YYA.OnionArchitecture.Application;
 using YYA.OnionArchitecture.Persistence.Context;
-using Microsoft.AspNetCore.HttpLogging;
 using YYA.OnionArchitecture.Middlewares;
 using Microsoft.OpenApi.Models;
 
