@@ -82,10 +82,6 @@ namespace YYA.OnionArchitecture.Middlewares
 
             builder.Host.UseSerilog();
 
-            Log.Logger.Error("graylog serilog test");
-
-
-
         }
     }
 }

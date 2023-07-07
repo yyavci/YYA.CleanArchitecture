@@ -11,5 +11,5 @@ This solution contains a .NET Core app built on the onion architecture with some
 - Middlewares
 - Unit Testing via Nunit , FluentAssertions and Moq
 - Swagger
-- Logging - SeriLog
+- Logging - SeriLog & Graylog
 - Authentication via JwtToken
